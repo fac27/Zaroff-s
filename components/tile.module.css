@@ -1,0 +1,13 @@
+.flex {
+  display: flex;
+}
+.spaceBetween {
+  justify-content: space-between;
+}
+.thin {
+  font-weight: 100;
+}
+
+.container {
+  max-width: 20rem;
+}

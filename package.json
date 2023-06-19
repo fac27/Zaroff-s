@@ -8,9 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "write":  "npx prettier --write ."
+    "write": "npx prettier --write ."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "eslint-config-next": "13.4.6",
     "next": "13.4.6",
     "react": "18.2.0",
