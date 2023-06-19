@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Layout home>
       <Head>
-        <title>Zaroff\'s Island Emporium</title>
+        <title>Zaroffs Island Emporium</title>
       </Head>
       <section>
         <h1>Image of an Island here</h1>
