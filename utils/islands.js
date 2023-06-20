@@ -2,7 +2,7 @@ import {
   select_all_islands,
   select_one_island,
   select_all_regions,
-} from "./models/islands.js";
+} from "../utils/models/islands.js";
 
 export function getAllIslands() {
   const allIslands = select_all_islands.all();
