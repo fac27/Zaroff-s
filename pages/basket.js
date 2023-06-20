@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { useEffect, useContext, useState } from 'react';
-import { BasketContext } from '@/context/context';
-import styles from './basket.module.css';
+import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useContext, useState } from "react";
+import { BasketContext } from "@/context/context";
+import styles from "./basket.module.css";
 
 export default function Basket() {
   const { basket, setBasket } = useContext(BasketContext);
@@ -15,11 +15,11 @@ export default function Basket() {
 
   // load local storage if exists and set when leaving
   useEffect(() => {
-    const oldBasket = window.localStorage.getItem('basket');
+    const oldBasket = window.localStorage.getItem("basket");
     if (oldBasket.length > 0) setBasket(JSON.parse(oldBasket));
     return () => {
-      console.log('basket setting local storage');
-      window.localStorage.setItem('basket', JSON.stringify(basket));
+      console.log("basket setting local storage");
+      window.localStorage.setItem("basket", JSON.stringify(basket));
     };
   }, []);
 
@@ -29,7 +29,7 @@ export default function Basket() {
       {basket &&
         basket.map((islandData, i) => <Item key={i} islandData={islandData} />)}
       <b>TOTAL: £{total}</b>
-      <button onClick={() => window.alert('rich boy')}>CHECKOUT</button>
+      <button onClick={() => window.alert("rich boy")}>CHECKOUT</button>
       <Link href="/"> 🔙 </Link>
     </>
   );
