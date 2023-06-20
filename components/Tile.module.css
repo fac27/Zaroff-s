@@ -15,11 +15,12 @@
 }
 
 .container {
-  padding: 50px;
+  position: relative;
 }
 
 .width {
   max-width: 300px;
+  max-height: 250px;
 }
 
 .noWrap {
@@ -46,6 +47,6 @@
   padding-inline: 20px;
 }
 
-.padding > :first-child {
-  padding-bottom: 10px;
+.imgPadding {
+  padding-top: 250px;
 }

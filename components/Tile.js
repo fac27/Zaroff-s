@@ -6,8 +6,15 @@ export default function Tile({ island }) {
   const { imageUrl, description, islandName, region, price, area } = island;
   return (
     <figure className={`${styles.container} ${styles.width} ${styles.padding}`}>
-      <Image src={imageUrl} alt={islandName} width={300} />
-      <figcaption className={`${styles.flex} ${styles.spaceBetween}`}>
+      <Image
+        src={imageUrl}
+        alt={islandName}
+        fill={true}
+        style={{ objectFit: 'contain' }}
+      />
+      <figcaption
+        className={`${styles.flex} ${styles.spaceBetween} ${styles.imgPadding}`}
+      >
         <b className={styles.noWrap}>{islandName}</b>
         <b className={styles.thin}>{area} acres</b>
       </figcaption>
