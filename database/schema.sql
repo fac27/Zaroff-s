@@ -1,0 +1,20 @@
+BEGIN;
+
+CREATE TABLE IF NOT EXISTS islands (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT UNIQUE,
+  region TEXT,
+  description TEXT,
+  price INTEGER,
+  area INTEGER,
+  img_path TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS extras (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  price INTEGER 
+);
+
+COMMIT;
