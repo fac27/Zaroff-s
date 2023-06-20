@@ -1,4 +1,4 @@
-import { select_one_island, select_all_islands } from './models/islands.js';
+import { select_one_island, select_all_islands } from "./models/islands.js";
 
 export function getAllIslands() {
   const allIslands = select_all_islands.all();
