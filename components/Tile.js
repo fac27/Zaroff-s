@@ -2,27 +2,25 @@
 import Image from 'next/image';
 import styles from './tile.module.css';
 
-export default function Tile(props) {
+export default function Tile({ island }) {
+  const { imageUrl, description, islandName, region, price, area } = island;
   return (
-    <article className={[styles.flex, styles.spaceBetween]}>
-      <figure>
-        <Image
-          src={props.imageUrl}
-          alt={props.islandName}
-          width={200}
-          height={200}
-        />
-        <caption className={styles.caption}>
-          <b>{props.islandName}</b>
-          <b className={styles.thin}>{props.area} acres</b>
-        </caption>
-      </figure>
-      <div>
-        <small>{props.region}</small>
-        <small>GBP {props.price}</small>
-        <p> {props.description}</p>
-      </div>
-      {/* <FontAwesomeIcon icon={'fa-regular fa-coin-vertical'} /> */}
-    </article>
+    <figure className={`${styles.container} ${styles.width} ${styles.padding}`}>
+      <Image src={imageUrl} alt={islandName} width={300} />
+      <figcaption className={`${styles.flex} ${styles.spaceBetween}`}>
+        <b className={styles.noWrap}>{islandName}</b>
+        <b className={styles.thin}>{area} acres</b>
+      </figcaption>
+      <figcaption
+        className={`${styles.flex} ${styles.sg} ${styles.thin} ${styles.opacity}`}
+      >
+        <small>{region}</small>
+        <small>GBP {price}</small>
+      </figcaption>
+      <figcaption>
+        <hr className={`${styles.width} ${styles.black}`} />
+        <b className={styles.center}> {description}</b>
+      </figcaption>
+    </figure>
   );
 }

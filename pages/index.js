@@ -1,18 +1,19 @@
 import Tile from '../components/Tile';
 import image from '../public/images/camera.example.jpg';
 
+const islandExample = {
+  description: 'helipad, bar, beach',
+  area: 100,
+  price: 700000,
+  region: 'caribbean',
+  islandName: 'Los Islandes',
+  imageUrl: image,
+};
+
 export default function Home() {
   return (
     <>
-      <Tile
-        description={'akjsdnfkasd'}
-        area={123123}
-        price={123123}
-        region={'home'}
-        islandName={'my island'}
-        imageUrl={image}
-      />
-      <h1> Hello World!</h1>
+      <Tile island={islandExample} />
     </>
   );
 }
