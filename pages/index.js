@@ -1,5 +1,6 @@
 import Layout from "../components/Layout.js";
 import Head from "next/head";
+import TileContainer from "../components/TileContainer";
 
 export default function Home() {
   return (
@@ -10,9 +11,7 @@ export default function Home() {
       <section>
         <h1>Image of an Island here</h1>
       </section>
-      <section>
-        <h2>Island Tiles here</h2>
-      </section>
+      <TileContainer />
     </Layout>
   );
 }
