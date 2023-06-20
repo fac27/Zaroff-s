@@ -1,8 +1,9 @@
-import Layout from "../components/Layout.js";
-import Head from "next/head";
-import TileContainer from "../components/TileContainer";
-import Image from "next/image.js";
-import { getAllIslands } from "/utils/islands.js";
+import Layout from '../components/Layout.js';
+import Head from 'next/head';
+import Link from 'next/link';
+import TileContainer from '../components/TileContainer';
+import Image from 'next/image.js';
+import { getAllIslands } from '/utils/islands.js';
 
 export function getStaticProps() {
   const islands = getAllIslands();
@@ -17,7 +18,8 @@ export default function Home({ islands }) {
       <Head>
         <title>Zaroffs Island Emporium</title>
       </Head>
-      <Image src={"/images/41.jpg"} alt={"asdas"} width={1200} height={100} />
+      <Link href="/basket"> BASKET </Link>
+      <Image src={'/images/41.jpg'} alt={'asdas'} width={1200} height={100} />
       <TileContainer islands={islands} />
     </Layout>
   );
