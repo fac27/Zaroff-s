@@ -11,7 +11,7 @@ export default function Basket() {
 
   // load local storage
   useEffect(() => {
-    basket.current = localStorage.getItem('basket');
+    basket.current = localStorage.getItem('basket') || [];
   }, []);
   return (
     <>
