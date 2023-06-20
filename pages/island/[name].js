@@ -5,8 +5,14 @@ import Head from "next/head";
 // create paths for each existing island
 export async function getStaticPaths() {
   const paths = getAllIslands();
+  const formattedPaths = paths.map((island) => {
+    island.name = island.name.toLowerCase().replace(/\s/g, "-")
+    console.log(island)
+    return island
+  })
+  
   return {
-    paths,
+    formattedPaths,
     fallback: false,
   };
 }
