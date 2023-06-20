@@ -1,38 +1,34 @@
-import Image from 'next/image';
-import styles from './Banner.module.css';
-import Link from 'next/link';
-import { useEffect } from 'react';
+import Image from "next/image";
+import styles from "./Banner.module.css";
+import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Banner() {
-
   useEffect(() => {
     const handleScroll = () => {
-    //   if (document.body.scrollTop > 90 ||
-    //     document.documentElement.scrollTop > 90)
-    // {
-    //     document.getElementById("navlist")
-    //                 .style.padding = "25px 10px";
-              
-    //     document.getElementById("logo")
-    //             .style.fontSize = "24px";
-    // }
-    // else {
-    //     document.getElementById("navlist")
-    //                 .style.padding = "90px 10px";
-                      
-    //     document.getElementById("logo")
-    //                 .style.fontSize = "35px";
-    // }
+      //   if (document.body.scrollTop > 90 ||
+      //     document.documentElement.scrollTop > 90)
+      // {
+      //     document.getElementById("navlist")
+      //                 .style.padding = "25px 10px";
+      //     document.getElementById("logo")
+      //             .style.fontSize = "24px";
+      // }
+      // else {
+      //     document.getElementById("navlist")
+      //                 .style.padding = "90px 10px";
+      //     document.getElementById("logo")
+      //                 .style.fontSize = "35px";
+      // }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Clean up function
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
 
   return (
     <header>

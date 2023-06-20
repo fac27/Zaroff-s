@@ -1,7 +1,7 @@
-import Layout from '../components/Layout.js';
-import Head from 'next/head';
-import Banner from '../components/Banner.js';
-import TileContainer from '../components/TileContainer';
+import Layout from "../components/Layout.js";
+import Head from "next/head";
+import Banner from "../components/Banner.js";
+import TileContainer from "../components/TileContainer";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
-      </p>{' '}
+      </p>{" "}
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -28,7 +28,7 @@ export default function Home() {
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
-      </p>{' '}
+      </p>{" "}
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -37,7 +37,7 @@ export default function Home() {
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
-      </p>{' '}
+      </p>{" "}
     </Layout>
   );
 }

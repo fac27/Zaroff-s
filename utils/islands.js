@@ -6,8 +6,8 @@ export function getAllIslands() {
     return {
       params: {
         id: island.id,
-        name: island.name.toLowerCase().replace(/\s/g,"-")
-      }
+        name: island.name.toLowerCase().replace(/\s/g, "-"),
+      },
     };
   });
   return islandsArray;

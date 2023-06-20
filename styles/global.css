@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Figtree:ital,wght@0,300;0,600;1,300&display=swap');:root {
-    --background-colour: #333;
-    --foreground-colour: #fff;
+@import url("https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Figtree:ital,wght@0,300;0,600;1,300&display=swap");
+:root {
+  --background-colour: #333;
+  --foreground-colour: #fff;
 }
 * {
   box-sizing: border-box;
