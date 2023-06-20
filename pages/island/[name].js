@@ -1,6 +1,7 @@
 import { getIslandData, getAllIslands } from "../../utils/islands.js";
 import Layout from "@/components/Layout.js";
 import Head from "next/head";
+import Image from "next/image";
 
 // create paths for each existing island
 export async function getStaticPaths() {
@@ -32,13 +33,16 @@ export function getStaticProps({ params }) {
 }
 
 export default function Island({islandData}) {
-  console.log('💋', islandData);
   return (
     <Layout>
       <Head>
         <title>{islandData.name}</title>
       </Head>
-      <h1>Hello Welcome To {islandData.name}</h1>
+      <section>
+        <Image></Image>
+      </section>
+      {/* new component passing islandData */}
+      {/* <h1>Hello Welcome To {name}</h1> */}
     </Layout>
   );
 }
