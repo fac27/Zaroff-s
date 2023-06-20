@@ -21,7 +21,6 @@ export async function getStaticPaths() {
   };
 }
 
-
 export function getStaticProps({ params }) {
   const formattedName = params.name.replace(/\-/g, " ").replace(/\b\w/g, match => match.toUpperCase());
   const islandData = getIslandData(formattedName); 
@@ -39,7 +38,7 @@ export default function Island({islandData}) {
         <title>{islandData.name}</title>
       </Head>
       <section>
-        <Image></Image>
+        <Image alt={`An image of ${islandData.name}}`} src={islandData.image_path}></Image>
       </section>
       {/* new component passing islandData */}
       {/* <h1>Hello Welcome To {name}</h1> */}
