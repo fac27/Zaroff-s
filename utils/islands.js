@@ -8,5 +8,6 @@ export function getAllIslands() {
 }
 
 export function getIslandData(name) {
-  return select_one_island.get({name});
+  const stringName = name.toString();
+  return select_one_island.get({ name: stringName });
 }

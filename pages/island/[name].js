@@ -21,24 +21,24 @@ export async function getStaticPaths() {
 }
 
 
-export async function getStaticProps({ params }) {
+export function getStaticProps({ params }) {
   const formattedName = params.name.replace(/\-/g, " ").replace(/\b\w/g, match => match.toUpperCase());
   const islandData = getIslandData(formattedName); 
-
   return {
     props: {
-      ...islandData,
+      islandData,
     },
   };
 }
 
-export default function Island({ islandData }) {
+export default function Island({islandData}) {
+  console.log('💋', islandData);
   return (
     <Layout>
       <Head>
-        <title>{islandData}</title>
+        <title>{islandData.name}</title>
       </Head>
-      <h1>Hello Island</h1>
+      <h1>Hello Welcome To {islandData.name}</h1>
     </Layout>
   );
 }
