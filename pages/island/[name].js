@@ -4,27 +4,30 @@ import Head from "next/head";
 
 // create paths for each existing island
 export async function getStaticPaths() {
-  const paths = getAllIslands();
-  const formattedPaths = paths.map((island) => {
-    island.name = island.name.toLowerCase().replace(/\s/g, "-")
-    console.log(island)
-    return island
-  })
+  const islands = getAllIslands();
+  const paths = islands.params.map((island) => {
+    return {
+      params: {
+        id: island.id,
+        name: island.name.toLowerCase().replace(/\s/g, "-")
+      }
+    }
+  });
   
   return {
-    formattedPaths,
+    paths,
     fallback: false,
   };
 }
 
-// create props for each island from it's id fed from static paths
+
 export async function getStaticProps({ params }) {
-  // how does getStaticProps work? Where are params coming from?
-  console.log(params); // Only returning { name: 'sunset-haven' }
-  const islandData = await getIslandData(params.name); // No id to return
+  const formattedName = params.name.replace(/\-/g, " ").replace(/\b\w/g, match => match.toUpperCase());
+  const islandData = getIslandData(formattedName); 
+
   return {
     props: {
-      islandData,
+      ...islandData,
     },
   };
 }
