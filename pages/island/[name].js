@@ -1,6 +1,6 @@
-import { getIslandData, getAllIslands } from '../../utils/islands.js';
-import Layout from '@/components/Layout.js';
-import Head from 'next/head';
+import { getIslandData, getAllIslands } from "../../utils/islands.js";
+import Layout from "@/components/Layout.js";
+import Head from "next/head";
 
 // create paths for each existing island
 export async function getStaticPaths() {
@@ -9,7 +9,7 @@ export async function getStaticPaths() {
     return {
       params: {
         id: island.id,
-        name: island.name.toLowerCase().replaceAll(/\s/g, '-'),
+        name: island.name.toLowerCase().replaceAll(/\s/g, "-"),
       },
     };
   });
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 
 export function getStaticProps({ params }) {
   const formattedName = params.name
-    .replace(/\-/g, ' ')
+    .replace(/\-/g, " ")
     .replace(/\b\w/g, (match) => match.toUpperCase());
   const islandData = getIslandData(formattedName);
   return {
