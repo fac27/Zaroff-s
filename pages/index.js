@@ -1,6 +1,6 @@
-import Layout from '../components/Layout.js';
-import Head from 'next/head';
-import TileContainer from '../components/TileContainer';
+import Layout from "../components/Layout.js";
+import Head from "next/head";
+import TileContainer from "../components/TileContainer";
 
 export default function Home() {
   return (

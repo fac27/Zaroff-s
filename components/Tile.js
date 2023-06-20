@@ -1,6 +1,6 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from 'next/image';
-import styles from './tile.module.css';
+import Image from "next/image";
+import styles from "./tile.module.css";
 
 export default function Tile({ island }) {
   const { imageUrl, description, islandName, region, price, area } = island;
@@ -10,7 +10,7 @@ export default function Tile({ island }) {
         src={imageUrl}
         alt={islandName}
         fill={true}
-        style={{ objectFit: 'contain' }}
+        style={{ objectFit: "contain" }}
       />
       <figcaption
         className={`${styles.flex} ${styles.spaceBetween} ${styles.imgPadding}`}
