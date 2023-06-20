@@ -1,0 +1,66 @@
+.pageContainer {
+    padding: 3rem;
+}
+
+/* Utility classes */
+
+.row {
+    display: flex;
+}
+
+.alignCenter {
+    align-items: center;
+}
+
+.spaceBetween {
+    justify-content: space-between;
+}
+
+.spaceAround {
+    justify-content: space-around;
+}
+
+.text {
+    font-family: "Figtree", sans-serif;
+}
+
+/* Elements - Image */
+
+.imageContainer {
+    padding-right: 3rem;
+}
+
+.image {
+    object-fit: cover;
+}
+
+/* Elements - Article */
+
+.article {
+    padding-left: 1.5rem;
+    padding-right: 3rem;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.keyInfo {
+    font-size: 1.6rem;
+}
+
+.description {
+    font-size: 1.2rem;
+}
+
+
+.button {
+    margin-top: 2rem;
+    text-decoration: none;
+    color: black;
+    background-color: aqua;
+    padding: 0.5rem;
+    border: solid 0.1rem black;
+}
+
+
