@@ -1,17 +1,24 @@
-import Layout from "../components/Layout.js";
-import Head from "next/head";
-import TileContainer from "../components/TileContainer";
+import Layout from '../components/Layout.js';
+import Head from 'next/head';
+import TileContainer from '../components/TileContainer';
+import Image from 'next/image.js';
+import { getAllIslands } from '/utils/islands.js';
 
-export default function Home() {
+export function getStaticProps() {
+  const islands = getAllIslands();
+  return {
+    props: { islands: [...islands.params] },
+  };
+}
+
+export default function Home({ islands }) {
   return (
     <Layout home>
       <Head>
         <title>Zaroffs Island Emporium</title>
       </Head>
-      <section>
-        <h1>Image of an Island here</h1>
-      </section>
-      <TileContainer />
+      <Image src={'/images/41.jpg'} alt={'asdas'} width={1200} height={100} />
+      <TileContainer islands={islands} />
     </Layout>
   );
 }

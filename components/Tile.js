@@ -3,7 +3,8 @@ import Image from 'next/image';
 import styles from './Tile.module.css';
 
 export default function Tile({ island }) {
-  const { imageUrl, description, islandName, region, price, area } = island;
+  const { img_path: imageUrl, name: islandName, region, price, area } = island;
+
   return (
     <figure className={`${styles.container} ${styles.width} ${styles.padding}`}>
       <Image
@@ -24,10 +25,10 @@ export default function Tile({ island }) {
         <small>{region}</small>
         <small>GBP {price}</small>
       </figcaption>
-      <figcaption>
+      {/* <figcaption>
         <hr className={`${styles.width} ${styles.black}`} />
         <b className={styles.center}> {description}</b>
-      </figcaption>
+      </figcaption> */}
     </figure>
   );
 }
