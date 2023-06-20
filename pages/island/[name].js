@@ -9,7 +9,7 @@ export async function getStaticPaths() {
     return {
       params: {
         id: island.id,
-        name: island.name.toLowerCase().replace(/\s/g, '-'),
+        name: island.name.toLowerCase().replaceAll(/\s/g, '-'),
       },
     };
   });
