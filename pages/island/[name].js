@@ -10,11 +10,11 @@ export async function getStaticPaths() {
     return {
       params: {
         id: island.id,
-        name: island.name.toLowerCase().replace(/\s/g, "-")
-      }
-    }
+        name: island.name.toLowerCase().replaceAll(/\s/g, '-'),
+      },
+    };
   });
-  
+
   return {
     paths,
     fallback: false,
@@ -22,8 +22,10 @@ export async function getStaticPaths() {
 }
 
 export function getStaticProps({ params }) {
-  const formattedName = params.name.replace(/\-/g, " ").replace(/\b\w/g, match => match.toUpperCase());
-  const islandData = getIslandData(formattedName); 
+  const formattedName = params.name
+    .replace(/\-/g, ' ')
+    .replace(/\b\w/g, (match) => match.toUpperCase());
+  const islandData = getIslandData(formattedName);
   return {
     props: {
       islandData,
