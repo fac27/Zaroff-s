@@ -1,9 +1,11 @@
-import { getIslandData, getAllIslands } from "../../utils/islands.js";
-import Layout from "@/components/Layout.js";
-import Head from "next/head";
+import { getIslandData, getAllIslands } from '../../utils/islands.js';
+import Layout from '@/components/Layout.js';
+import Head from 'next/head';
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./islands.module.css";
+import { BasketContext } from "@/context/context.js";
+import { useContext } from "react";
 
 // create paths for each existing island
 export async function getStaticPaths() {
@@ -12,7 +14,7 @@ export async function getStaticPaths() {
     return {
       params: {
         id: island.id,
-        name: island.name.toLowerCase().replaceAll(/\s/g, '-'),
+        name: island.name.toLowerCase().replaceAll(/\s/g, "-"),
       },
     };
   });
@@ -25,7 +27,7 @@ export async function getStaticPaths() {
 
 export function getStaticProps({ params }) {
   const formattedName = params.name
-    .replace(/\-/g, ' ')
+    .replace(/\-/g, " ")
     .replace(/\b\w/g, (match) => match.toUpperCase());
   const islandData = getIslandData(formattedName);
   return {
@@ -35,7 +37,12 @@ export function getStaticProps({ params }) {
   };
 }
 
-export default function Island({islandData}) {
+export default function Island({ islandData }) {
+  const { basket, setBasket } = useContext(BasketContext);
+  function addToBasket() {
+    setBasket([...basket, islandData]);
+  }
+
   return (
     <Layout style = "styles">
       <Head>
@@ -54,7 +61,7 @@ export default function Island({islandData}) {
           <h2 className={`${styles.keyInfo} ${styles.text}`}>{islandData.area} acres</h2>
           <p className={`${styles.description} ${styles.text}`}>{islandData.description}</p>
           <div className={`${styles.row} ${styles.spaceAround}`}>
-            <Link className={`${styles.button} ${styles.text}`} href="/">Add to Basket</Link>
+            <button className={`${styles.button} ${styles.text}`} onClick={addToBasket}>Add to Basket</button>
             <Link className={`${styles.button} ${styles.text}`} href="/">Back to Listings</Link>
           </div>
         </article>
