@@ -41,7 +41,7 @@ export default function Home({ islands, regions, prices }) {
         priceLimit={priceLimit}
         setPriceLimit={setPriceLimit}
       />
-      
+
       <TileContainer
         islands={islands}
         filter={filter}
