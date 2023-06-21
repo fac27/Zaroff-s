@@ -10,7 +10,6 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
       </Head>
       <main>{children}</main>
-      {!home && <Link href="/">Back to home</Link>}
     </>
   );
 }

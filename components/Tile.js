@@ -22,6 +22,7 @@ export default function Tile({
           alt={islandName}
           fill={true}
           style={{ objectFit: "contain" }}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <figcaption
           className={`${styles.flex} ${styles.spaceBetween} ${styles.imgPadding}`}
