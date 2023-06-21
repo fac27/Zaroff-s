@@ -1,3 +1,50 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next", "kentcdodds", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "args": "after-used"
+      }
+    ],
+    "no-console": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "excludedFiles": ["*.spec.js", "*.test.js"],
+      "rules": {
+        "no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "args": "after-used"
+          }
+        ],
+        "import/no-unresolved": "off",
+        "import/order": "off",
+        "no-useless-escape": "off",
+        "consistent-return": "off",
+        "no-alert": "off",
+        "prettier/prettier": "off"
+      }
+    },
+    {
+      "files": ["*.test.js"],
+      "globals": {
+        "describe": "readonly",
+        "it": "readonly",
+        "expect": "readonly"
+      }
+    }
+  ]
 }

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useEffect, useContext } from "react";
-import { BasketContext } from "@/context/context";
 import BasketItem from "../components/BasketItem";
 import { getAllIslands } from "@/utils/islands";
+import { BasketContext } from "@/context/context";
 
 export function getStaticProps() {
   const islands = getAllIslands().params;
@@ -28,7 +28,7 @@ export default function Basket({ islands }) {
   }, [setBasket]);
 
   if (!basket) return;
-  const basketData = islands.filter((island) => basket.includes(island.name));
+  const basketData = islands.filter(island => basket.includes(island.name));
   const total = basketData.reduce((acc, curr) => (acc += curr.price), 0);
 
   return (

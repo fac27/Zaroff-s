@@ -1,12 +1,14 @@
 import styles from "./TileContainer.module.css";
 import Tile from "./Tile";
 
-export default function TileContainer({ islands }) {
+export default function TileContainer({ islands, filter }) {
   return (
     <main className={styles.main}>
-      {islands.map((island, i) => (
-        <Tile key={i} island={island} />
-      ))}
+      {islands
+        .filter(island => island.region === filter || filter === "all")
+        .map((island, i) => (
+          <Tile key={i} island={island} />
+        ))}
     </main>
   );
 }

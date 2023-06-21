@@ -4,7 +4,7 @@ import { BasketContext } from "@/context/context";
 import { useContext } from "react";
 
 export default function Item({
-  islandData: { img_path: imagePath, name: islandName, region, price, area },
+  islandData: { img_path: imagePath, name: islandName, region, price },
 }) {
   const { basket, setBasket } = useContext(BasketContext);
 
