@@ -4,6 +4,7 @@ import BasketItem from "../components/BasketItem";
 import { getAllIslands } from "@/utils/islands";
 import { BasketContext } from "@/context/context";
 import { commas } from "@/utils/format";
+import styles from "./basket.module.css";
 
 export function getStaticProps() {
   const islands = getAllIslands().params;
@@ -23,14 +24,20 @@ export default function Basket({ islands }) {
 
   return (
     <>
-      <h1> Basket </h1>
+      <nav className={styles.nav}>
+        <Link href="/" className={styles.back}>
+          🔙
+        </Link>
+        <h1 className={styles.title}> BASKET </h1>
+      </nav>
       {basket &&
         basketData.map((islandData, i) => (
           <BasketItem key={i} islandData={islandData} />
         ))}
-      <b>TOTAL: £{commas(total)}</b>
-      <button onClick={() => window.alert("rich boy")}>CHECKOUT</button>
-      <Link href="/"> 🔙 </Link>
+      <section className={styles.section}>
+        <b>TOTAL: £{commas(total)}</b>
+        <button onClick={() => window.alert("rich boy")}>CHECKOUT</button>
+      </section>
     </>
   );
 }

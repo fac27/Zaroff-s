@@ -21,12 +21,15 @@ export default function Item({
   }
 
   return (
-    <div className={styles.container}>
-      <Image src={imagePath} alt={islandName} width={300} height={200} />
-      <b>{islandName}</b>
-      <small> {region}</small>
-      <p> £{commas(price)}</p>
-      <button onClick={deleteButton}> ⌫ </button>
-    </div>
+    <>
+      <div className={styles.container}>
+        <Image src={imagePath} alt={islandName} width={300} height={200} />
+        <b>{islandName}</b>
+        <small> {region}</small>
+        <small> £{commas(price)}</small>
+        <button onClick={deleteButton}> ⌫ </button>
+      </div>
+      <hr className={styles.hr} />
+    </>
   );
 }
