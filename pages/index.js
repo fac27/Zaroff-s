@@ -27,6 +27,7 @@ export default function Home({ islands, regions }) {
       <Head>
         <title>Zaroffs Island Emporium</title>
       </Head>
+      <Link href="/basket"> BASKET </Link>
       <Image src={"/images/41.jpg"} alt={"asdas"} width={1200} height={100} />
       <IslandFilter regions={regions} setFilter={setFilter} />
       <TileContainer islands={islands} filter={filter} />
