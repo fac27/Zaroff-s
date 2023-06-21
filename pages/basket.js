@@ -1,32 +1,43 @@
 import Link from "next/link";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import BasketItem from "../components/BasketItem";
+import { getAllIslands } from "@/utils/islands";
 import { BasketContext } from "@/context/context";
+import { commas } from "@/utils/format";
+import styles from "./basket.module.css";
 
-export default function Basket() {
-  const { basket, setBasket } = useContext(BasketContext);
+export function getStaticProps() {
+  const islands = getAllIslands().params;
+  return {
+    props: {
+      islands,
+    },
+  };
+}
 
-  useEffect(() => {
-    const oldBasket = window.localStorage.getItem("basket");
-    if (oldBasket) setBasket(JSON.parse(oldBasket));
-  }, [setBasket]);
+export default function Basket({ islands }) {
+  const { basket } = useContext(BasketContext);
 
-  if (!basket.length) return;
-
-  window.localStorage.setItem("basket", JSON.stringify(basket));
-
-  const total = basket.reduce((acc, curr) => (acc += curr.price), 0);
+  if (!basket) return;
+  const basketData = islands.filter(island => basket.includes(island.name));
+  const total = basketData.reduce((acc, curr) => (acc += curr.price), 0);
 
   return (
     <>
-      <h1> Basket </h1>
+      <nav className={styles.nav}>
+        <Link href="/" className={styles.back}>
+          🔙
+        </Link>
+        <h1 className={styles.title}> BASKET </h1>
+      </nav>
       {basket &&
-        basket.map((islandData, i) => (
+        basketData.map((islandData, i) => (
           <BasketItem key={i} islandData={islandData} />
         ))}
-      <b>TOTAL: £{total}</b>
-      <button onClick={() => window.alert("rich boy")}>CHECKOUT</button>
-      <Link href="/"> 🔙 </Link>
+      <section className={styles.section}>
+        <b>TOTAL: £{commas(total)}</b>
+        <button onClick={() => window.alert("rich boy")}>CHECKOUT</button>
+      </section>
     </>
   );
 }
