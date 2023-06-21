@@ -7,6 +7,7 @@ import styles from "./islands.module.css";
 import { BasketContext } from "@/context/context.js";
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { commas } from "../../utils/format";
 
 export async function getStaticPaths() {
   const islands = getAllIslands();
@@ -76,10 +77,7 @@ export default function Island({ islandData }) {
               {islandData.name}
             </h1>
             <h2 className={`${styles.keyInfo} ${styles.text}`}>
-              £
-              {islandData.price
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              £{commas(islandData.price)}
             </h2>
           </div>
           <h2 className={`${styles.keyInfo} ${styles.text}`}>

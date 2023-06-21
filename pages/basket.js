@@ -3,6 +3,7 @@ import { useContext } from "react";
 import BasketItem from "../components/BasketItem";
 import { getAllIslands } from "@/utils/islands";
 import { BasketContext } from "@/context/context";
+import { commas } from "@/utils/format";
 
 export function getStaticProps() {
   const islands = getAllIslands().params;
@@ -27,7 +28,7 @@ export default function Basket({ islands }) {
         basketData.map((islandData, i) => (
           <BasketItem key={i} islandData={islandData} />
         ))}
-      <b>TOTAL: £{total}</b>
+      <b>TOTAL: £{commas(total)}</b>
       <button onClick={() => window.alert("rich boy")}>CHECKOUT</button>
       <Link href="/"> 🔙 </Link>
     </>

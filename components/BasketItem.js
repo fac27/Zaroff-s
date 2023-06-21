@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./basketItem.module.css";
 import { BasketContext } from "@/context/context";
 import { useContext, useEffect } from "react";
-
+import { commas } from "@/utils/format";
 export default function Item({
   islandData: { img_path: imagePath, name: islandName, region, price },
 }) {
@@ -25,7 +25,7 @@ export default function Item({
       <Image src={imagePath} alt={islandName} width={300} height={200} />
       <b>{islandName}</b>
       <small> {region}</small>
-      <p> £{price}</p>
+      <p> £{commas(price)}</p>
       <button onClick={deleteButton}> ⌫ </button>
     </div>
   );
