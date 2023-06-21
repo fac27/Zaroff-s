@@ -2,7 +2,10 @@
 :root {
   --background-colour: #333;
   --foreground-colour: #fff;
+  --heading-font-size: 2rem;
+  --subheading-font-size: 1.4rem;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,4 +25,11 @@ body {
 p {
   margin-bottom: 2rem;
   line-height: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  :root{
+    --heading-font-size: 4rem;
+    --subheading-font-size: 2rem;
+  }
 }

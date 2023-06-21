@@ -24,16 +24,19 @@
 
 .banner__title {
   text-shadow: 0 0 10px #222;
+  
 }
 
 .banner__title h1 {
-  font-size: 4rem;
+  font-size: var(--heading-font-size);
   font-weight: 600;
   margin-bottom: 10px;
+  transition: all 0.5s;
 }
 
 .banner__title h2 {
-  font-size: 1.8rem;
+  font-size: var(--subheading-font-size);
   margin-bottom: 10px;
   font-style: italic;
+  transition: all 0.5s;
 }
