@@ -7,17 +7,16 @@ import { commas } from "@/utils/format";
 import styles from "./basket.module.css";
 
 export function getStaticProps() {
-  const islands = getAllIslands().params;
+  const islands = getAllIslands();
   return {
     props: {
-      islands,
+      params: { islands },
     },
   };
 }
 
-export default function Basket({ islands }) {
+export default function Basket({ params: { islands } }) {
   const { basket } = useContext(BasketContext);
-
   if (!basket) return;
   const basketData = islands.filter(island => basket.includes(island.name));
   const total = basketData.reduce((acc, curr) => (acc += curr.price), 0);
