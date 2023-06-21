@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useContext } from "react";
-import { BasketContext } from "@/context/context";
 import BasketItem from "../components/BasketItem";
+import { BasketContext } from "@/context/context";
 
 export default function Basket() {
   const { basket, setBasket } = useContext(BasketContext);

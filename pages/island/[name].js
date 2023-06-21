@@ -10,7 +10,7 @@ import { useContext } from "react";
 // create paths for each existing island
 export async function getStaticPaths() {
   const islands = getAllIslands();
-  const paths = islands.params.map((island) => {
+  const paths = islands.params.map(island => {
     return {
       params: {
         id: island.id,
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 export function getStaticProps({ params }) {
   const formattedName = params.name
     .replace(/\-/g, " ")
-    .replace(/\b\w/g, (match) => match.toUpperCase());
+    .replace(/\b\w/g, match => match.toUpperCase());
   const islandData = getIslandData(formattedName);
   return {
     props: {
