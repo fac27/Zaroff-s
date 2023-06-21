@@ -8,6 +8,7 @@ import TileContainer from "../components/TileContainer";
 import IslandFilter from "../components/IslandFilter.js";
 import PriceSorter from "../components/PriceSorter.js";
 import { getAllIslands, getAllRegions, getAllPrices } from "@/utils/islands.js";
+import Navbar from "@/components/Navbar.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
@@ -36,6 +37,7 @@ export default function Home({ islands, regions, prices }) {
       </Head>
       <Link href="/basket"> BASKET </Link>
       <Banner />
+      <Navbar />
       <IslandFilter regions={regions} setFilter={setFilter} />
       <PriceSorter
         prices={prices}
