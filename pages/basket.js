@@ -16,16 +16,14 @@ export function getStaticProps() {
 export default function Basket({ islands }) {
   const { basket, setBasket } = useContext(BasketContext);
 
-  useEffect(() => {
-    if (!basket) window.localStorage.setItem("basket", JSON.stringify(basket));
-  }, [basket]);
+  // useEffect(() => {
+  //   const localBasket = window.localStorage.getItem("basket");
+  //   const newBasket = localBasket ? JSON.parse(localBasket) : [];
+  //   console.log("📛 setting new basket");
+  //   setBasket(newBasket);
+  // }, []);
 
-  useEffect(() => {
-    const localBasket = window.localStorage.getItem("basket");
-    const newBasket = localBasket ? JSON.parse(localBasket) : [];
-    setBasket(newBasket);
-  }, [setBasket]);
-
+  console.log(basket);
   if (!basket) return;
   const basketData = islands.filter(island => basket.includes(island.name));
   const total = basketData.reduce((acc, curr) => (acc += curr.price), 0);

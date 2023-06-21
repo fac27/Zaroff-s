@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./islands.module.css";
 import { BasketContext } from "@/context/context.js";
-import { useContext } from "react";
-import { redirect } from "next/navigation";
+import { useContext, useEffect } from "react";
+// import { useRouter } from "next/navigation";
 
 // create paths for each existing island
 export async function getStaticPaths() {
@@ -39,12 +39,24 @@ export function getStaticProps({ params }) {
 }
 
 export default function Island({ islandData }) {
+  // const { push } = useRouter();
   const { basket, setBasket } = useContext(BasketContext);
+
+  useEffect(() => {
+    // const localBasket = window.localStorage.getItem("basket");
+    // if (localBasket) return
+    console.log(basket);
+    if (basket) {
+      window.localStorage.setItem("basket", JSON.stringify(basket));
+      console.log("set");
+    }
+  }, [basket]);
+
   function addToBasket() {
     if (basket.includes(islandData.name))
       return alert(`${islandData.name} already in basket`);
     setBasket([islandData.name, ...basket]);
-    redirect("/basket");
+    // push("/basket");
   }
 
   return (
@@ -85,12 +97,14 @@ export default function Island({ islandData }) {
             {islandData.description}
           </p>
           <div className={`${styles.row} ${styles.spaceAround}`}>
+            {/* <Link href={"/basket"}> */}
             <button
               className={`${styles.button} ${styles.text}`}
               onClick={addToBasket}
             >
               Add to Basket
             </button>
+            {/* </Link> */}
             <Link className={`${styles.button} ${styles.text}`} href="/">
               Back to Listings
             </Link>
