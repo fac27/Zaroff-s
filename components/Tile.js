@@ -15,7 +15,7 @@ export default function Tile({
   return (
     <Link href={`/island/${formatName(islandName)}`}>
       <figure
-        className={`${styles.container} ${styles.width} ${styles.padding}`}
+        className={`island-item ${styles.container} ${styles.width} ${styles.padding}`}
       >
         <Image
           src={imageUrl}
