@@ -6,21 +6,28 @@ import Link from "next/link";
 import Banner from "../components/Banner.js";
 import TileContainer from "../components/TileContainer";
 import IslandFilter from "../components/IslandFilter.js";
-import { getAllIslands, getAllRegions } from "@/utils/islands.js";
+import PriceSorter from "../components/PriceSorter.js";
+import { getAllIslands, getAllRegions, getAllPrices } from "@/utils/islands.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
 
-  const dbCall = getAllRegions().map(region => region.region);
-  const allRegions = [...new Set(dbCall)];
+  const allRegions = [...new Set(getAllRegions().map(region => region.region))];
+
+  const allPrices = [...new Set(getAllPrices().map(price => price.price))];
 
   return {
-    props: { islands: [...islands.params], regions: allRegions },
+    props: {
+      islands: [...islands.params],
+      regions: allRegions,
+      prices: allPrices,
+    },
   };
 }
 
-export default function Home({ islands, regions }) {
+export default function Home({ islands, regions, prices }) {
   const [filter, setFilter] = useState("all");
+  const [priceLimit, setPriceLimit] = useState(Math.ceil(Math.max(...prices)));
 
   return (
     <Layout home>
@@ -30,7 +37,16 @@ export default function Home({ islands, regions }) {
       <Link href="/basket"> BASKET </Link>
       <Banner />
       <IslandFilter regions={regions} setFilter={setFilter} />
-      <TileContainer islands={islands} filter={filter} />
+      <PriceSorter
+        prices={prices}
+        priceLimit={priceLimit}
+        setPriceLimit={setPriceLimit}
+      />
+      <TileContainer
+        islands={islands}
+        filter={filter}
+        priceLimit={priceLimit}
+      />
     </Layout>
   );
 }
