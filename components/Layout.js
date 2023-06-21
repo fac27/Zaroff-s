@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Link from "next/link";
 
 const siteTitle = "Zaroff's Island Emporium";
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
   return (
     <>
       <Head>

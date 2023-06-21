@@ -5,12 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./islands.module.css";
 import { BasketContext } from "@/context/context.js";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { commas } from "../../utils/format";
 
-// create paths for each existing island
 export async function getStaticPaths() {
   const islands = getAllIslands();
-  const paths = islands.params.map((island) => {
+  const paths = islands.params.map(island => {
     return {
       params: {
         id: island.id,
@@ -28,7 +29,7 @@ export async function getStaticPaths() {
 export function getStaticProps({ params }) {
   const formattedName = params.name
     .replace(/\-/g, " ")
-    .replace(/\b\w/g, (match) => match.toUpperCase());
+    .replace(/\b\w/g, match => match.toUpperCase());
   const islandData = getIslandData(formattedName);
   return {
     props: {
@@ -38,9 +39,20 @@ export function getStaticProps({ params }) {
 }
 
 export default function Island({ islandData }) {
+  const { push } = useRouter();
   const { basket, setBasket } = useContext(BasketContext);
+
+  useEffect(() => {
+    if (basket) {
+      window.localStorage.setItem("basket", JSON.stringify(basket));
+    }
+  }, [basket]);
+
   function addToBasket() {
-    setBasket([...basket, islandData]);
+    if (basket.includes(islandData.name))
+      return alert(`${islandData.name} already in basket`);
+    setBasket([islandData.name, ...basket]);
+    push("/basket");
   }
 
   return (
@@ -65,10 +77,7 @@ export default function Island({ islandData }) {
               {islandData.name}
             </h1>
             <h2 className={`${styles.keyInfo} ${styles.text}`}>
-              £
-              {islandData.price
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              £{commas(islandData.price)}
             </h2>
           </div>
           <h2 className={`${styles.keyInfo} ${styles.text}`}>
@@ -81,12 +90,14 @@ export default function Island({ islandData }) {
             {islandData.description}
           </p>
           <div className={`${styles.row} ${styles.spaceAround}`}>
+            {/* <Link href={"/basket"}> */}
             <button
               className={`${styles.button} ${styles.text}`}
               onClick={addToBasket}
             >
               Add to Basket
             </button>
+            {/* </Link> */}
             <Link className={`${styles.button} ${styles.text}`} href="/">
               Back to Listings
             </Link>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "./Tile.module.css";
 import money from "../public/money.svg";
 import location from "../public/location.svg";
+import { commas } from "@/utils/format";
 
 export default function Tile({
   island: { img_path: imageUrl, name: islandName, region, price, area },
@@ -36,7 +37,7 @@ export default function Tile({
           <Image src={location} alt={"location"} width={15} height={15} />
           <small>{region}</small>
           <Image src={money} alt={"£"} width={15} height={15} />
-          <small>GBP {price}</small>
+          <small>GBP £{commas(price)}</small>
         </figcaption>
         {/* <figcaption>
         <hr className={`${styles.width} ${styles.black}`} />

@@ -6,7 +6,7 @@ export default function IslandFilter({ regions, setFilter }) {
   return (
     <select name="region" id="islands" onChange={chooseFilter}>
       <option value="all">All</option>
-      {regions.map((region) => (
+      {regions.map(region => (
         <option key={region} value={region}>
           {region}
         </option>
