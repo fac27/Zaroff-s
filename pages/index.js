@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Layout from "../components/Layout.js";
 import Head from "next/head";
 import Link from "next/link";
@@ -9,6 +11,7 @@ import { getAllIslands, getAllRegions } from "/utils/islands.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
+
   const dbCall = getAllRegions().map((region) => region.region);
   const allRegions = [...new Set(dbCall)];
 
@@ -18,6 +21,8 @@ export function getStaticProps() {
 }
 
 export default function Home({ islands, regions }) {
+  const [filter, setFilter] = useState("all");
+
   return (
     <Layout home>
       <Head>
@@ -25,7 +30,8 @@ export default function Home({ islands, regions }) {
       </Head>
       <Link href="/basket"> BASKET </Link>
       <Banner />
-      <TileContainer islands={islands} />
+      <IslandFilter regions={regions} setFilter={setFilter} />
+      <TileContainer islands={islands} filter={filter} />
     </Layout>
   );
 }
