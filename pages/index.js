@@ -1,10 +1,10 @@
-import Layout from '../components/Layout.js';
-import Head from 'next/head';
-import Link from 'next/link';
-import TileContainer from '../components/TileContainer';
-import IslandFilter from '../components/IslandFilter.js';
-import Image from 'next/image.js';
-import { getAllIslands, getAllRegions } from '/utils/islands.js';
+import Layout from "../components/Layout.js";
+import Head from "next/head";
+import Link from "next/link";
+import TileContainer from "../components/TileContainer";
+import IslandFilter from "../components/IslandFilter.js";
+import Image from "next/image.js";
+import { getAllIslands, getAllRegions } from "/utils/islands.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
@@ -23,7 +23,7 @@ export default function Home({ islands, regions }) {
         <title>Zaroffs Island Emporium</title>
       </Head>
       <Link href="/basket"> BASKET </Link>
-      <Image src={'/images/41.jpg'} alt={'home'} width={1200} height={100} />
+      <Image src={"/images/41.jpg"} alt={"home"} width={1200} height={100} />
       <IslandFilter regions={regions} />
       <TileContainer islands={islands} />
     </Layout>
