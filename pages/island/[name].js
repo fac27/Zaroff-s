@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "./islands.module.css";
 import { BasketContext } from "@/context/context.js";
 import { useContext } from "react";
+import { redirect } from "next/navigation";
 
 // create paths for each existing island
 export async function getStaticPaths() {
@@ -43,6 +44,7 @@ export default function Island({ islandData }) {
     if (basket.includes(islandData.name))
       return alert(`${islandData.name} already in basket`);
     setBasket([islandData.name, ...basket]);
+    redirect("/basket");
   }
 
   return (
