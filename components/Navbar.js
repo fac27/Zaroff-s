@@ -1,7 +1,4 @@
 import styles from "./Navbar.module.css";
-import Image from "next/image";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Navbar() {
   return (
