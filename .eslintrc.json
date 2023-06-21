@@ -1,11 +1,12 @@
 {
-  "extends": ["kentcdodds", "plugin:prettier/recommended"],
+  "extends": ["next", "kentcdodds", "plugin:prettier/recommended"],
   "plugins": ["prettier"],
   "env": {
     "jest": true
   },
   "rules": {
     "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
     "no-unused-vars": [
       "error",
       {
@@ -28,7 +29,13 @@
             "varsIgnorePattern": "^_",
             "args": "after-used"
           }
-        ]
+        ],
+      "import/no-unresolved": "off",
+      "import/order": "off",
+      "no-useless-escape": "off",
+      "consistent-return": "off",
+      "no-alert": "off",
+      "prettier/prettier": "off"
       }
     },
     {
