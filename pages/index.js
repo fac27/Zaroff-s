@@ -8,6 +8,7 @@ import TileContainer from "../components/TileContainer";
 import IslandFilter from "../components/IslandFilter.js";
 import Image from "next/image.js";
 import { getAllIslands, getAllRegions } from "/utils/islands.js";
+import Navbar from "@/components/Navbar.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
@@ -30,6 +31,7 @@ export default function Home({ islands, regions }) {
       </Head>
       <Link href="/basket"> BASKET </Link>
       <Banner />
+      <Navbar />
       <IslandFilter regions={regions} setFilter={setFilter} />
       <TileContainer islands={islands} filter={filter} />
     </Layout>
