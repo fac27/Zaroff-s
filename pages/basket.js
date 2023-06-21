@@ -3,7 +3,6 @@ import { useEffect, useContext } from "react";
 import BasketItem from "../components/BasketItem";
 import { BasketContext } from "@/context/context";
 
-
 export default function Basket() {
   const { basket, setBasket } = useContext(BasketContext);
 

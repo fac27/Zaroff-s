@@ -1,6 +1,4 @@
-import Image from "next/image";
 import styles from "./Banner.module.css";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 export default function Banner() {
@@ -41,11 +39,4 @@ export default function Banner() {
       </div>
     </header>
   );
-}
-
-{
-  /* <div className={styles.banner__nav}>
-  <Link href="/">home</Link>
-  <Link href="#islands">Our islands</Link>
-</div>; */
 }

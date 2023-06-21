@@ -6,13 +6,12 @@ import Link from "next/link";
 import Banner from "../components/Banner.js";
 import TileContainer from "../components/TileContainer";
 import IslandFilter from "../components/IslandFilter.js";
-import Image from "next/image.js";
 import { getAllIslands, getAllRegions } from "@/utils/islands.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
 
-  const dbCall = getAllRegions().map((region) => region.region);
+  const dbCall = getAllRegions().map(region => region.region);
   const allRegions = [...new Set(dbCall)];
 
   return {

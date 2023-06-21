@@ -30,12 +30,12 @@
             "args": "after-used"
           }
         ],
-      "import/no-unresolved": "off",
-      "import/order": "off",
-      "no-useless-escape": "off",
-      "consistent-return": "off",
-      "no-alert": "off",
-      "prettier/prettier": "off"
+        "import/no-unresolved": "off",
+        "import/order": "off",
+        "no-useless-escape": "off",
+        "consistent-return": "off",
+        "no-alert": "off",
+        "prettier/prettier": "off"
       }
     },
     {
