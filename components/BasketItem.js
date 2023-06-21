@@ -8,11 +8,6 @@ export default function BasketItem({
 }) {
   const { basket, setBasket } = useContext(BasketContext);
 
-  useEffect(() => {
-    if (typeof basket !== "undefined")
-      window.localStorage.setItem("basket", JSON.stringify(basket));
-  }, [basket]);
-
   function deleteButton() {
     const indexOfItem = basket.indexOf(islandName);
     const newBasket = basket.toSpliced(indexOfItem, 1);
@@ -22,7 +17,6 @@ export default function BasketItem({
   return (
     <>
       <div className={styles.container}>
-        {imagePath}
         <Image src={imagePath} alt={islandName} width={300} height={200} />
         <b>{islandName}</b>
         <small> {region}</small>
