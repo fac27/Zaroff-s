@@ -1,5 +1,6 @@
 import Layout from "../components/Layout.js";
 import Head from "next/head";
+import Link from "next/link";
 import TileContainer from "../components/TileContainer";
 import IslandFilter from "../components/IslandFilter.js";
 import Image from "next/image.js";
@@ -21,7 +22,8 @@ export default function Home({ islands, regions }) {
       <Head>
         <title>Zaroffs Island Emporium</title>
       </Head>
-      <Image src={"/images/41.jpg"} alt={"asdas"} width={1200} height={100} />
+      <Link href="/basket"> BASKET </Link>
+      <Image src={"/images/41.jpg"} alt={"home"} width={1200} height={100} />
       <IslandFilter regions={regions} />
       <TileContainer islands={islands} />
     </Layout>
