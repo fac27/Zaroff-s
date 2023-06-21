@@ -1,16 +1,13 @@
-export default function IslandFilter({ regions }) {
+export default function IslandFilter({ regions, setFilter }) {
   function chooseFilter(e) {
-    console.log(e.target.value);
     return setFilter(e.target.value);
   }
 
   return (
-    <select name="region" id="islands">
-      <option value="all" onChange={chooseFilter}>
-        All
-      </option>
+    <select name="region" id="islands" onChange={chooseFilter}>
+      <option value="all">All</option>
       {regions.map((region) => (
-        <option key={region} value={region} onChange={chooseFilter}>
+        <option key={region} value={region}>
           {region}
         </option>
       ))}

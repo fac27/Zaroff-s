@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Layout from "../components/Layout.js";
 import Head from "next/head";
+import Link from "next/link";
 import TileContainer from "../components/TileContainer";
 import IslandFilter from "../components/IslandFilter.js";
 import Image from "next/image.js";
@@ -9,6 +10,7 @@ import { getAllIslands, getAllRegions } from "/utils/islands.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
+
   const dbCall = getAllRegions().map((region) => region.region);
   const allRegions = [...new Set(dbCall)];
 
@@ -18,7 +20,7 @@ export function getStaticProps() {
 }
 
 export default function Home({ islands, regions }) {
-  const { filter, setFilter } = useState("all");
+  const [filter, setFilter] = useState("all");
 
   return (
     <Layout home>
@@ -26,7 +28,7 @@ export default function Home({ islands, regions }) {
         <title>Zaroffs Island Emporium</title>
       </Head>
       <Image src={"/images/41.jpg"} alt={"asdas"} width={1200} height={100} />
-      <IslandFilter regions={regions} filter={filter} setFilter={setFilter} />
+      <IslandFilter regions={regions} setFilter={setFilter} />
       <TileContainer islands={islands} filter={filter} />
     </Layout>
   );

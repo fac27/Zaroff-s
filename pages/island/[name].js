@@ -1,6 +1,8 @@
 import { getIslandData, getAllIslands } from "../../utils/islands.js";
 import Layout from "@/components/Layout.js";
 import Head from "next/head";
+import { BasketContext } from "@/context/context.js";
+import { useContext } from "react";
 
 // create paths for each existing island
 export async function getStaticPaths() {
@@ -33,12 +35,18 @@ export function getStaticProps({ params }) {
 }
 
 export default function Island({ islandData }) {
+  const { basket, setBasket } = useContext(BasketContext);
+  function addToBasket() {
+    setBasket([...basket, islandData]);
+  }
+
   return (
     <Layout>
       <Head>
         <title>{islandData.name}</title>
       </Head>
       <h1>Hello Welcome To {islandData.name}</h1>
+      <button onClick={addToBasket}> Add to basket </button>
     </Layout>
   );
 }
