@@ -7,11 +7,11 @@ import { getAllIslands, getAllRegions } from "/utils/islands.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
-  const dbCall = getAllRegions().map(region=>region.region);
+  const dbCall = getAllRegions().map((region) => region.region);
   const allRegions = [...new Set(dbCall)];
 
   return {
-    props: { islands: [...islands.params], regions: [allRegions] },
+    props: { islands: [...islands.params], regions: allRegions },
   };
 }
 

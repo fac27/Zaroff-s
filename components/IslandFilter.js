@@ -1,5 +1,4 @@
 export default function IslandFilter({ regions }) {
- 
   return (
     <select name="region" id="islands">
       <option value="all">All</option>
