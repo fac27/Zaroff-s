@@ -1,4 +1,4 @@
-export function PriceSorter({ prices, setPriceLimit }) {
+export default function PriceSorter({ prices, setPriceLimit }) {
   function choosePriceLimit(e) {
     return setPriceLimit(e.target.value);
   }
