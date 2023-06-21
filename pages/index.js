@@ -25,7 +25,6 @@ export default function Home({ islands, regions }) {
       </Head>
       <Link href="/basket"> BASKET </Link>
       <Banner />
-      <Image src={"/images/41.jpg"} alt={"asdas"} width={1200} height={100} />
       <TileContainer islands={islands} />
     </Layout>
   );

@@ -34,7 +34,6 @@ export default function Banner() {
   return (
     <header>
       <div className={styles.banner__outer} ref={bannerRef}>
-        <div className={styles.banner__nav}>Navigation</div>
         <div className={styles.banner__title} ref={titleRef}>
           <h1>Zaroff&apos;s Island Emporium</h1>
           <h2>Because finding your island paradise shouldn&apos;t be atoll</h2>
