@@ -14,11 +14,14 @@ export default function Item({
     if (typeof basket !== "undefined")
       window.localStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);
+  
   function deleteButton() {
     const indexOfItem = basket.indexOf(islandName);
-    const newBasket = basket.toSpliced(indexOfItem, 1);
+    const newBasket = [...basket];
+    newBasket.splice(indexOfItem, 1);
     setBasket(newBasket);
   }
+  
 
   return (
     <>
