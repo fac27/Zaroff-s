@@ -6,9 +6,8 @@ import Link from "next/link";
 import styles from "./islands.module.css";
 import { BasketContext } from "@/context/context.js";
 import { useContext, useEffect } from "react";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-// create paths for each existing island
 export async function getStaticPaths() {
   const islands = getAllIslands();
   const paths = islands.params.map(island => {
@@ -39,16 +38,12 @@ export function getStaticProps({ params }) {
 }
 
 export default function Island({ islandData }) {
-  // const { push } = useRouter();
+  const { push } = useRouter();
   const { basket, setBasket } = useContext(BasketContext);
 
   useEffect(() => {
-    // const localBasket = window.localStorage.getItem("basket");
-    // if (localBasket) return
-    console.log(basket);
     if (basket) {
       window.localStorage.setItem("basket", JSON.stringify(basket));
-      console.log("set");
     }
   }, [basket]);
 
@@ -56,7 +51,7 @@ export default function Island({ islandData }) {
     if (basket.includes(islandData.name))
       return alert(`${islandData.name} already in basket`);
     setBasket([islandData.name, ...basket]);
-    // push("/basket");
+    push("/basket");
   }
 
   return (
