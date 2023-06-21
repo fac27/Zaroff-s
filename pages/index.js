@@ -2,11 +2,8 @@ import { useState } from "react";
 
 import Layout from "../components/Layout.js";
 import Head from "next/head";
-import Link from "next/link";
 import Banner from "../components/Banner.js";
 import TileContainer from "../components/TileContainer";
-import IslandFilter from "../components/IslandFilter.js";
-import PriceSorter from "../components/PriceSorter.js";
 import { getAllIslands, getAllRegions, getAllPrices } from "@/utils/islands.js";
 import Navbar from "@/components/Navbar.js";
 
@@ -35,15 +32,16 @@ export default function Home({ islands, regions, prices }) {
       <Head>
         <title>Zaroffs Island Emporium</title>
       </Head>
-      <Link href="/basket"> BASKET </Link>
+
       <Banner />
-      <Navbar />
-      <IslandFilter regions={regions} setFilter={setFilter} />
-      <PriceSorter
+      <Navbar
+        regions={regions}
+        setFilter={setFilter}
         prices={prices}
         priceLimit={priceLimit}
         setPriceLimit={setPriceLimit}
       />
+      
       <TileContainer
         islands={islands}
         filter={filter}
