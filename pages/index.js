@@ -20,14 +20,14 @@ export function getStaticProps() {
     props: {
       islands: [...islands.params],
       regions: allRegions,
-      prices: { allPrices },
+      prices: allPrices,
     },
   };
 }
 
 export default function Home({ islands, regions, prices }) {
   const [filter, setFilter] = useState("all");
-  const [priceLimit, setPriceLimit] = useState(0);
+  const [priceLimit, setPriceLimit] = useState(Math.ceil(Math.max(...prices)));
 
   return (
     <Layout home>
@@ -37,7 +37,11 @@ export default function Home({ islands, regions, prices }) {
       <Link href="/basket"> BASKET </Link>
       <Banner />
       <IslandFilter regions={regions} setFilter={setFilter} />
-      <PriceSorter price={prices} setPriceLimit={setPriceLimit} />
+      <PriceSorter
+        prices={prices}
+        priceLimit={priceLimit}
+        setPriceLimit={setPriceLimit}
+      />
       <TileContainer
         islands={islands}
         filter={filter}
