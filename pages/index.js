@@ -3,6 +3,7 @@ import { useState } from "react";
 import Layout from "../components/Layout.js";
 import Head from "next/head";
 import Link from "next/link";
+import Banner from "../components/Banner.js";
 import TileContainer from "../components/TileContainer";
 import IslandFilter from "../components/IslandFilter.js";
 import Image from "next/image.js";
@@ -28,7 +29,7 @@ export default function Home({ islands, regions }) {
         <title>Zaroffs Island Emporium</title>
       </Head>
       <Link href="/basket"> BASKET </Link>
-      <Image src={"/images/41.jpg"} alt={"asdas"} width={1200} height={100} />
+      <Banner />
       <IslandFilter regions={regions} setFilter={setFilter} />
       <TileContainer islands={islands} filter={filter} />
     </Layout>
