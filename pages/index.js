@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Layout from "../components/Layout.js";
 import Head from "next/head";
 import TileContainer from "../components/TileContainer";
@@ -16,14 +18,16 @@ export function getStaticProps() {
 }
 
 export default function Home({ islands, regions }) {
+  const { filter, setFilter } = useState("all");
+
   return (
     <Layout home>
       <Head>
         <title>Zaroffs Island Emporium</title>
       </Head>
       <Image src={"/images/41.jpg"} alt={"asdas"} width={1200} height={100} />
-      <IslandFilter regions={regions} />
-      <TileContainer islands={islands} />
+      <IslandFilter regions={regions} filter={filter} setFilter={setFilter} />
+      <TileContainer islands={islands} filter={filter} />
     </Layout>
   );
 }
