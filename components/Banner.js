@@ -7,11 +7,7 @@ export default function Banner() {
 
   useEffect(() => {
     const handleScroll = () => {
-<<<<<<< HEAD
-      if(!bannerRef.current || !titleRef.current) return
-=======
       if (!bannerRef.current || !titleRef.current) return;
->>>>>>> main
       if (
         document.body.scrollTop > 40 ||
         document.documentElement.scrollTop > 40
