@@ -7,6 +7,7 @@ export default function Banner() {
 
   useEffect(() => {
     const handleScroll = () => {
+      if(!bannerRef.current || !titleRef.current) return
       if (
         document.body.scrollTop > 90 ||
         document.documentElement.scrollTop > 90
