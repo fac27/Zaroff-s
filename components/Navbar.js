@@ -18,7 +18,7 @@ export default function Navbar() {
   );
 }
 
-const CartIcon = (props) => (
+const CartIcon = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height={props.size}
@@ -34,7 +34,7 @@ const CartIcon = (props) => (
   </svg>
 );
 
-const IslandIcon = (props) => (
+const IslandIcon = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill={props.fill}
