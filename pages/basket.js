@@ -17,7 +17,6 @@ export default function Basket({ islands }) {
   const { basket, setBasket } = useContext(BasketContext);
 
   useEffect(() => {
-    console.log(basket);
     if (!basket) window.localStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);
 
