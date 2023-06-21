@@ -20,7 +20,7 @@ export function getStaticProps() {
     props: {
       islands: [...islands.params],
       regions: allRegions,
-      prices: allPrices,
+      prices: {allPrices},
     },
   };
 }
@@ -38,10 +38,11 @@ export default function Home({ islands, regions, prices }) {
       <Banner />
       <IslandFilter regions={regions} setFilter={setFilter} />
       <PriceSorter price={prices} setPriceLimit={setPriceLimit} />
+      {console.log(prices)}
       <TileContainer
         islands={islands}
         filter={filter}
-        priceLimit={priceLimit}
+        // priceLimit={priceLimit}
       />
     </Layout>
   );
