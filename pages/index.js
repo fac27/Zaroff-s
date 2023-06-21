@@ -4,7 +4,7 @@ import Link from "next/link";
 import TileContainer from "../components/TileContainer";
 import IslandFilter from "../components/IslandFilter.js";
 import Image from "next/image.js";
-import { getAllIslands, getAllRegions } from "./utils/islands.js";
+import { getAllIslands, getAllRegions } from "@/utils/islands.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
