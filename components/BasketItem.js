@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import styles from './basketItem.module.css';
+import Image from "next/image";
+import styles from "./basketItem.module.css";
 
 export default function Item({
   islandData: { img_path: imagePath, name: islandName, region, price, area },
