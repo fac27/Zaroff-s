@@ -19,7 +19,7 @@ export default function Home({ islands }) {
         <title>Zaroffs Island Emporium</title>
       </Head>
       <Banner />
-      <TileContainer />
+      <TileContainer islands={islands}/>
     </Layout>
   );
 }
