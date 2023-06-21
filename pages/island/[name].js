@@ -39,7 +39,6 @@ export default function Island({ islandData }) {
   function addToBasket() {
     if (basket.includes(islandData.name))
       return alert(`${islandData.name} already in basket`);
-    console.log('adding to baskets');
     setBasket([islandData.name, ...basket]);
   }
 

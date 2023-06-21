@@ -8,11 +8,10 @@ export default function Item({
 }) {
   const { basket, setBasket } = useContext(BasketContext);
 
-  console.log(basket);
-
   function deleteButton() {
-    console.log(islandName);
-    setBasket();
+    const indexOfItem = basket.indexOf(islandName);
+    const newBasket = basket.toSpliced(indexOfItem, 1);
+    setBasket(newBasket);
   }
 
   return (

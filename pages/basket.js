@@ -17,14 +17,14 @@ export default function Basket({ islands }) {
   const { basket, setBasket } = useContext(BasketContext);
 
   useEffect(() => {
-    // console.log('📛 set storage');
-    if (basket) window.localStorage.setItem('basket', JSON.stringify(basket));
+    console.log(basket);
+    if (!basket) window.localStorage.setItem('basket', JSON.stringify(basket));
   }, [basket]);
 
   useEffect(() => {
-    // console.log('🎊 read storage');
-    const oldBasket = window.localStorage.getItem('basket');
-    if (oldBasket) setBasket(JSON.parse(oldBasket));
+    const localBasket = window.localStorage.getItem('basket');
+    const newBasket = localBasket ? JSON.parse(localBasket) : [];
+    setBasket(newBasket);
   }, [setBasket]);
 
   if (!basket) return;
