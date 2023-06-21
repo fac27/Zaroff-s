@@ -1,14 +1,5 @@
-import styles from "./TileContainer.module.css";
-import Tile from "./Tile";
-
-const islandExample = {
-  description: "helipad, bar, beach",
-  area: 100,
-  price: 700000,
-  region: "caribbean",
-  islandName: "Los Islandes",
-  imageUrl: "/images/2.jpg",
-};
+import styles from './TileContainer.module.css';
+import Tile from './Tile';
 
 export default function TileContainer({ islands }) {
   return (
