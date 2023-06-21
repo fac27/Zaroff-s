@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import styles from './basketItem.module.css';
-import { BasketContext } from '@/context/context';
-import { useContext } from 'react';
+import Image from "next/image";
+import styles from "./basketItem.module.css";
+import { BasketContext } from "@/context/context";
+import { useContext } from "react";
 
 export default function Item({
   islandData: { img_path: imagePath, name: islandName, region, price, area },

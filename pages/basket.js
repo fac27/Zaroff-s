@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { useEffect, useContext } from 'react';
-import { BasketContext } from '@/context/context';
-import BasketItem from '../components/BasketItem';
-import { getAllIslands } from '@/utils/islands';
+import Link from "next/link";
+import { useEffect, useContext } from "react";
+import { BasketContext } from "@/context/context";
+import BasketItem from "../components/BasketItem";
+import { getAllIslands } from "@/utils/islands";
 
 export function getStaticProps() {
   const islands = getAllIslands().params;
@@ -18,11 +18,11 @@ export default function Basket({ islands }) {
 
   useEffect(() => {
     console.log(basket);
-    if (!basket) window.localStorage.setItem('basket', JSON.stringify(basket));
+    if (!basket) window.localStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);
 
   useEffect(() => {
-    const localBasket = window.localStorage.getItem('basket');
+    const localBasket = window.localStorage.getItem("basket");
     const newBasket = localBasket ? JSON.parse(localBasket) : [];
     setBasket(newBasket);
   }, [setBasket]);
@@ -39,7 +39,7 @@ export default function Basket({ islands }) {
           <BasketItem key={i} islandData={islandData} />
         ))}
       <b>TOTAL: £{total}</b>
-      <button onClick={() => window.alert('rich boy')}>CHECKOUT</button>
+      <button onClick={() => window.alert("rich boy")}>CHECKOUT</button>
       <Link href="/"> 🔙 </Link>
     </>
   );
