@@ -11,7 +11,7 @@ import { commas } from "../../utils/format";
 
 export async function getStaticPaths() {
   const islands = getAllIslands();
-  const paths = islands.params.map(island => {
+  const paths = islands.map(island => {
     return {
       params: {
         id: island.id,

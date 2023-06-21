@@ -27,14 +27,14 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
 ## Product wireframe
 
 [Link to figma wireframe](<https://www.figma.com/file/XcLkT9I3Yqj6CAoyaB9WmT/Wireframing-(Copy)?type=design&node-id=0%3A194&t=3elTfj6zNjGDX1xo-1>)
 
 ![Screenshot from 2023-06-19 16-47-22](https://github.com/fac27/Zaroff-s/assets/32879360/b378c6e6-cc35-40e4-be1e-83c4dc6b1f65)
+
+## Interacting with the page
+
+Zaroff's is a retailer of private islands. The homepage shows you a listing of all our exclusive properties, which you can filter by region or - for those of humble finances - by price limit.
+
+You can visit the page of each individual island to find out more about your future property. Once you have made your choice, add your desired islands to the basket and we will charge your AmEx (tax evasion will be respected).

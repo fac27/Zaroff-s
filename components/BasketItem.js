@@ -3,14 +3,12 @@ import styles from "./basketItem.module.css";
 import { BasketContext } from "@/context/context";
 import { useContext, useEffect } from "react";
 import { commas } from "@/utils/format";
-export default function Item({
+export default function BasketItem({
   islandData: { img_path: imagePath, name: islandName, region, price },
 }) {
   const { basket, setBasket } = useContext(BasketContext);
 
   useEffect(() => {
-    // const localBasket = window.localStorage.getItem("basket");
-    // if (localBasket) return
     if (typeof basket !== "undefined")
       window.localStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);
@@ -26,6 +24,7 @@ export default function Item({
   return (
     <>
       <div className={styles.container}>
+        {imagePath}
         <Image src={imagePath} alt={islandName} width={300} height={200} />
         <b>{islandName}</b>
         <small> {region}</small>

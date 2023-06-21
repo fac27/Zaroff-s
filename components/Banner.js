@@ -7,16 +7,20 @@ export default function Banner() {
 
   useEffect(() => {
     const handleScroll = () => {
+<<<<<<< HEAD
       if(!bannerRef.current || !titleRef.current) return
+=======
+      if (!bannerRef.current || !titleRef.current) return;
+>>>>>>> main
       if (
-        document.body.scrollTop > 90 ||
-        document.documentElement.scrollTop > 90
+        document.body.scrollTop > 40 ||
+        document.documentElement.scrollTop > 40
       ) {
-        bannerRef.current.style.height = "100px";
+        bannerRef.current.style.height = "80px";
         bannerRef.current.style.padding = "25px 10px";
         titleRef.current.style.opacity = "0";
       } else {
-        bannerRef.current.style.height = "500px";
+        bannerRef.current.style.height = "400px";
         bannerRef.current.style.padding = "90px 10px";
         titleRef.current.style.opacity = "1";
       }
