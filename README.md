@@ -5,6 +5,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+npm install
+
 npm run dev
 # or
 yarn dev
@@ -38,3 +40,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 Zaroff's is a retailer of private islands. The homepage shows you a listing of all our exclusive properties, which you can filter by region or - for those of humble finances - by price limit.
 
 You can visit the page of each individual island to find out more about your future property. Once you have made your choice, add your desired islands to the basket and we will charge your AmEx (tax evasion will be respected).
+
+## Testing
+
+You can run our page's end-to-end tests in the terminal.
+
+Make sure the development server is running:
+
+```bash
+npm run dev
+```
+
+Open a new terminal and run:
+
+```bash
+npm run test
+```
