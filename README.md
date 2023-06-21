@@ -12,6 +12,12 @@ Install dependencies:
 npm install
 ```
 
+Seed the database:
+
+```bash
+npm run seed
+```
+
 Run the development server:
 
 ```bash
