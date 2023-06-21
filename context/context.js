@@ -8,7 +8,6 @@ export default function Context({ children }) {
   useEffect(() => {
     const localBasket = window.localStorage.getItem("basket");
     const newBasket = localBasket ? JSON.parse(localBasket) : [];
-    console.log("📛 loading old basket");
     setBasket(newBasket);
   }, []);
 
