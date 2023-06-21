@@ -9,7 +9,7 @@ export default function Navbar() {
         </li>
         <li className={styles.right}>
           <Link href="/basket">
-            <CartIcon fill="#333" class="cart" size="2rem" />
+            <CartIcon fill="#333" className="cart" size="2rem" />
           </Link>
         </li>
       </ul>

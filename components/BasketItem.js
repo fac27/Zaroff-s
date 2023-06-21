@@ -10,7 +10,8 @@ export default function BasketItem({
 
   function deleteButton() {
     const indexOfItem = basket.indexOf(islandName);
-    const newBasket = basket.toSpliced(indexOfItem, 1);
+    const newBasket = [...basket];
+    newBasket.splice(indexOfItem, 1);
     setBasket(newBasket);
   }
 

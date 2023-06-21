@@ -9,7 +9,8 @@
     "lint": "next lint",
     "prepare": "husky install",
     "write": "npx prettier --write .",
-    "seed": "node database/seed.mjs"
+    "seed": "node database/seed.mjs",
+    "test": "npx cypress run"
   },
   "dependencies": {
     "eslint-config-next": "13.4.6",
@@ -21,10 +22,10 @@
     "better-sqlite3": "^8.4.0",
     "dotenv": "^16.3.1",
     "eslint": "^8.43.0",
+    "eslint-config-kentcdodds": "^20.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-config-kentcdodds": "^20.5.0"
+    "prettier": "^2.8.8"
   }
 }
