@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.css";
-
+import Link from "next/link";
 export default function Navbar() {
   return (
     <nav className={styles.navbar__container}>
@@ -8,7 +8,9 @@ export default function Navbar() {
           <IslandIcon fill="#333" size="2rem" />
         </li>
         <li className={styles.right}>
-          <CartIcon fill="#333" class="cart" size="2rem" />
+          <Link href="/basket">
+            <CartIcon fill="#333" class="cart" size="2rem" />
+          </Link>
         </li>
       </ul>
     </nav>

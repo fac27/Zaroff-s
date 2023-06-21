@@ -35,7 +35,6 @@ export default function Home({ islands, regions, prices }) {
       <Head>
         <title>Zaroffs Island Emporium</title>
       </Head>
-      <Link href="/basket"> BASKET </Link>
       <Banner />
       <Navbar />
       <IslandFilter regions={regions} setFilter={setFilter} />
