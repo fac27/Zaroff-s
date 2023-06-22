@@ -7,7 +7,7 @@ export default function TileContainer({ islands, filter, priceLimit }) {
       {islands
         .filter(island => island.region === filter || filter === "all")
         .filter(island => island.price <= priceLimit)
-        .map((island) => (
+        .map(island => (
           <Tile key={island.name} island={island} />
         ))}
     </main>

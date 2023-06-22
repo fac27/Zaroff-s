@@ -52,7 +52,7 @@ npm run test
 
 Alternatively, you can run the tests in the Cypress app:
 
-Open Cypress application: 
+Open Cypress application:
 
 ```
 npx cypress open
