@@ -6,21 +6,20 @@ import Banner from "../components/Banner.js";
 import TileContainer from "../components/TileContainer";
 import IslandFilter from "../components/IslandFilter.js";
 import PriceSorter from "../components/PriceSorter.js";
-import { getAllIslands, getAllRegions, getAllPrices } from "@/utils/islands.js";
+import { getAllIslands } from "@/utils/islands.js";
 import Navbar from "@/components/Navbar.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
 
-  const allRegions = [...new Set(getAllRegions().map(region => region.region))];
-
-  const allPrices = [...new Set(getAllPrices().map(price => price.price))];
+  const regions = [...new Set(islands.map(island => island.region))];
+  const prices = [...new Set(islands.map(island => island.price))];
 
   return {
     props: {
-      islands: [...islands],
-      regions: allRegions,
-      prices: allPrices,
+      islands,
+      regions,
+      prices,
     },
   };
 }
