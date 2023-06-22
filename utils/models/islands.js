@@ -12,13 +12,3 @@ export const select_all_islands = db.prepare(/*sql*/ `
     SELECT *
     FROM islands
 `);
-
-export const select_all_regions = db.prepare(/*sql*/ `
-    SELECT region
-    FROM islands
-`);
-
-export const select_all_prices = db.prepare(/*sql*/ `
-    SELECT price
-    FROM islands
-`);

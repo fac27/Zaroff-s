@@ -1,7 +1,10 @@
+import { BasketContext } from "@/context/context";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import IslandFilter from "./IslandFilter";
 import PriceSorter from "./PriceSorter";
+
+import { useContext } from "react";
 
 export default function Navbar({
   regions,
@@ -10,6 +13,8 @@ export default function Navbar({
   priceLimit,
   setPriceLimit,
 }) {
+  const basketCount = useContext(BasketContext).basket.length;
+
   return (
     <nav className={styles.navbar__container}>
       <ul className={styles.navbar}>
@@ -34,6 +39,9 @@ export default function Navbar({
             <CartIcon fill="#333" size="2rem" />
           </li>
         </Link>
+        {basketCount > 0 && (
+          <div className={styles.basket_count}>{basketCount}</div>
+        )}
       </ul>
     </nav>
   );

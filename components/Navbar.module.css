@@ -56,3 +56,15 @@
 .centre > select {
   margin: 0 2vmin;
 }
+
+.basket_count {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.5rem;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+}

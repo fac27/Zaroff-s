@@ -9,7 +9,6 @@ import Navbar from "@/components/Navbar.js";
 
 export function getStaticProps() {
   const islands = getAllIslands();
-
   const regions = [...new Set(islands.map(island => island.region))];
   const prices = [...new Set(islands.map(island => island.price))];
 
