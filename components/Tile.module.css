@@ -17,6 +17,13 @@
 
 .container {
   position: relative;
+  margin-bottom: 5rem;
+  margin-inline: 0.5rem;
+}
+
+.container * {
+  color: var(--foreground-colour);
+  text-decoration: none;
 }
 
 .width {

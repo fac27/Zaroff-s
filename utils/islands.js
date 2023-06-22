@@ -6,10 +6,7 @@ import {
 } from "../utils/models/islands.js";
 
 export function getAllIslands() {
-  const allIslands = select_all_islands.all();
-  return {
-    params: allIslands,
-  };
+  return select_all_islands.all();
 }
 
 export function getIslandData(name) {

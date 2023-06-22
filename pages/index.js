@@ -16,7 +16,7 @@ export function getStaticProps() {
 
   return {
     props: {
-      islands: [...islands.params],
+      islands: [...islands],
       regions: allRegions,
       prices: allPrices,
     },

@@ -11,6 +11,10 @@ export default function Context({ children }) {
     setBasket(newBasket);
   }, []);
 
+  useEffect(() => {
+    window.localStorage.setItem("basket", JSON.stringify(basket));
+  }, [basket]);
+
   return (
     <BasketContext.Provider value={{ basket, setBasket }}>
       {children}
