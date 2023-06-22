@@ -9,7 +9,7 @@ export default function PriceSorter({ prices, priceLimit, setPriceLimit }) {
   return (
     <>
       <label htmlFor="prices">
-        {priceLimit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        £{priceLimit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
       </label>
       <input
         type="range"
