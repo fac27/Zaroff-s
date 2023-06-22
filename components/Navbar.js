@@ -1,6 +1,11 @@
+import { BasketContext } from "@/context/context";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
+import { useContext } from "react";
+
 export default function Navbar() {
+  const basketCount = useContext(BasketContext).basket.length;
+
   return (
     <nav className={styles.navbar__container}>
       <ul className={styles.navbar}>
@@ -9,8 +14,11 @@ export default function Navbar() {
         </li>
         <li className={styles.right}>
           <Link href="/basket">
-            <CartIcon fill="#333" className="cart" size="2rem" />
+            <CartIcon fill="#333" className={styles.cart} size="2rem" />
           </Link>
+          {basketCount > 0 && (
+            <div className={styles.basket_count}>{basketCount}</div>
+          )}
         </li>
       </ul>
     </nav>
