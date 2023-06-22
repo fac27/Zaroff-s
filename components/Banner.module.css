@@ -12,6 +12,7 @@
   position: sticky;
   text-align: center;
   height: 400px;
+  transition: all 0.5s;
 }
 
 .banner__outer .banner__nav {
@@ -20,10 +21,12 @@
   align-items: center;
   margin-bottom: 3rem;
   height: 3rem;
+  transition: all 0.5s;
 }
 
 .banner__title {
   text-shadow: 0 0 10px #222;
+  transition: all 0.5s;
 }
 
 .banner__title h1 {

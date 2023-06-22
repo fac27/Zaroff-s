@@ -33,14 +33,16 @@ export default function Home({ islands, regions, prices }) {
       <Head>
         <title>Zaroffs Island Emporium</title>
       </Head>
+
       <Banner />
-      <Navbar />
-      <IslandFilter regions={regions} setFilter={setFilter} />
-      <PriceSorter
+      <Navbar
+        regions={regions}
+        setFilter={setFilter}
         prices={prices}
         priceLimit={priceLimit}
         setPriceLimit={setPriceLimit}
       />
+
       <TileContainer
         islands={islands}
         filter={filter}
