@@ -1,25 +1,47 @@
 import { BasketContext } from "@/context/context";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
+import IslandFilter from "./IslandFilter";
+import PriceSorter from "./PriceSorter";
+
 import { useContext } from "react";
 
-export default function Navbar() {
+export default function Navbar({
+  regions,
+  setFilter,
+  prices,
+  priceLimit,
+  setPriceLimit,
+}) {
   const basketCount = useContext(BasketContext).basket.length;
 
   return (
     <nav className={styles.navbar__container}>
       <ul className={styles.navbar}>
-        <li className={styles.left}>
-          <IslandIcon fill="#333" size="2rem" />
+        <Link href="/">
+          <li className={styles.left}>
+            <IslandIcon fill="#333" size="2rem" />
+          </li>
+        </Link>
+
+        <li className={styles.centre}>
+          <span>Filter by type:</span>
+          <IslandFilter regions={regions} setFilter={setFilter} />
+          <span>Filter by cost:</span>
+          <PriceSorter
+            prices={prices}
+            priceLimit={priceLimit}
+            setPriceLimit={setPriceLimit}
+          />
         </li>
-        <li className={styles.right}>
-          <Link href="/basket">
-            <CartIcon fill="#333" className={styles.cart} size="2rem" />
-          </Link>
-          {basketCount > 0 && (
-            <div className={styles.basket_count}>{basketCount}</div>
-          )}
-        </li>
+        <Link href="/basket">
+          <li className={styles.right}>
+            <CartIcon fill="#333" size="2rem" />
+          </li>
+        </Link>
+        {basketCount > 0 && (
+          <div className={styles.basket_count}>{basketCount}</div>
+        )}
       </ul>
     </nav>
   );
