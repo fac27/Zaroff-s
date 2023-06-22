@@ -45,17 +45,16 @@ describe("end to end flow", () => {
     cy.contains("Sunset Haven").should("not.exist");
   });
 
-  // TEST BELOW EXPECTED TO FAIL UNLESS LOCAL STORAGE FIXED
-  // it("should delete an item from local storage when button is clicked", () => {
-  //   cy.visitMySite("/island/sunset-haven");
-  //   cy.contains("Add to Basket")
-  //   .click();
-  //   cy.visitMySite("/basket");
-  //   cy.contains("⌫")
-  //   .click();
-  //   cy.window().then((win) => {
-  //     const value = win.localStorage.getItem("basket");
-  //     expect(value).not.to.contain("Sunset Haven");
-  //   });
-  // })
+  it("should delete an item from local storage when button is clicked", () => {
+    cy.visitMySite("/island/sunset-haven");
+    cy.contains("Add to Basket")
+    .click();
+    cy.visitMySite("/basket");
+    cy.contains("⌫")
+    .click();
+    cy.window().then((win) => {
+      const value = win.localStorage.getItem("basket");
+      expect(value).not.to.contain("Sunset Haven");
+    });
+  })
 });
