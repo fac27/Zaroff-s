@@ -1,3 +1,5 @@
+import styles from "./PriceSorter.module.css";
+
 export default function PriceSorter({ prices, priceLimit, setPriceLimit }) {
   function choosePriceLimit(e) {
     return setPriceLimit(e.target.value);
@@ -19,6 +21,7 @@ export default function PriceSorter({ prices, priceLimit, setPriceLimit }) {
         max={highestPrice}
         step={(highestPrice - lowestPrice) / 10}
         onChange={choosePriceLimit}
+        className={styles.input}
       />
     </>
   );
